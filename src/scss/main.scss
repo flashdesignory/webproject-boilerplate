@@ -1,0 +1,47 @@
+@import "vendor/normalize";
+@import "modules/fixes";
+@import "modules/global";
+@import "modules/mixins";
+
+*{@include vendor-prefix('box-sizing', "border-box");margin:0; padding:0;}
+
+html, body{width:100%; height:100%; margin:0; padding:0;}
+body{background-color:$main-background-color; color:$main-text-color;}
+
+#breakpoints{display:fixed; left:0; top:0; width:0; height:0;}
+
+@media only screen and (min-width: 320px) {
+   #breakpoints:after {content: '320';}
+}
+
+@media only screen and (min-width: 540px){
+    #breakpoints:after {content: '540';}
+}
+
+@media only screen and (min-width: 641px) {
+    #breakpoints:after {content: '641';}
+}
+
+@media only screen and (min-width: 740px){
+    #breakpoints:after {content: '740';}
+}
+
+@media only screen and (min-width: 769px) {
+    #breakpoints:after {content: '769';}
+}
+
+@media only screen and (min-width: 900px) {
+    #breakpoints:after {content: '900';}
+}
+
+@media only screen and (min-width: 1024px) {
+    #breakpoints:after {content: '1024';}
+}
+
+@media only screen and (min-width: 1224px) {
+    #breakpoints:after {content: '1224';}
+}
+
+@media only screen and (min-width: 1440px) {
+    #breakpoints:after {content: '1440';}
+}

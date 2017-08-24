@@ -1,0 +1,16 @@
+{
+  "name": "template",
+  "version": "0.1.0",
+  "author": "Thorsten Kober",
+  "description": "starting point",
+  "main": "Gruntfile.js",
+  "devDependencies": {
+    "grunt": "^0.4.5",
+    "grunt-browser-sync": "latest",
+    "grunt-contrib-concat": "latest",
+    "grunt-contrib-copy": "^1.0.0",
+    "grunt-contrib-uglify": "latest",
+    "grunt-contrib-watch": "latest",
+    "grunt-sass": "^2.0.0"
+  }
+}

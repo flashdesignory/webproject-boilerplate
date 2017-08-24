@@ -1,0 +1,84 @@
+{
+  "metadata": {
+    "title": "Title",
+    "description": "Short description of the site",
+    "keywords": "Keywords for search",
+    "defaultUrl": "http://www.google.com",
+    "defaultShareImage": "files/images/share.jpg",
+    "country": "us"
+  },
+  "browser": {
+    "date": "ONLY AT CINEMAS",
+    "message": "To get the most out of this experience please<br/>upgrade to the latest version of Chrome, Firefox,<br/>Safari, or Internet Explorer."
+  },
+  "rotate": {
+    "message": "Please rotate your screen."
+  },
+  "header": {
+    "releaseDate": "ONLY AT CINEMAS",
+    "url": "https://www.journeytothedarktower.com/"
+  },
+  "social": {
+    "trailerEnabled": false,
+    "buttons": [
+      {
+        "id": "instagram",
+        "link": "https://www.instagram.com/",
+        "enabled": true
+      },
+      {
+        "id": "facebook",
+        "link": "https://www.facebook.com",
+        "enabled": true
+      },
+      {
+        "id": "twitter",
+        "link": "https://twitter.com",
+        "enabled": true
+      },
+      {
+        "id": "youtube",
+        "link": "https://www.youtube.com/",
+        "enabled": true
+      }
+    ]
+  },
+  "footer": {
+    "legal": "&copy;2017. All rights reserved.",
+    "credits": "Credits"
+  },
+  "trailer": {
+    "id": "5dsGWM5XGdg"
+  },
+  "credits": {
+    "links": [
+      {
+        "id": "privacy-policy",
+        "title": "Privacy Policy",
+        "link": "http://www.google.com",
+        "enabled": true
+      },
+      {
+        "id": "terms-of-use",
+        "title": "Terms of Use",
+        "link": "http://www.google.com",
+        "enabled": true
+      },
+      {
+        "id": "ca-privacy",
+        "title": "CA Privacy",
+        "href": "http://www.google.com",
+        "enabled": true
+      },
+      {
+        "id": "ad-choices",
+        "title": "Ad Choices",
+        "href": "http://www.google.com",
+        "enabled": true
+      }
+    ]
+  },
+  "landing": {
+    "trailer": "Watch Trailer",
+  }
+}

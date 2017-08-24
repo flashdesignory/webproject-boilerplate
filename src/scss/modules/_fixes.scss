@@ -1,0 +1,40 @@
+html{
+	-webkit-text-size-adjust: none;
+}
+
+a{
+	border-style:none; 
+	outline:0;	
+}
+
+img{
+	border-style:none; 
+	outline:0;	
+	vertical-align: middle;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-o-user-select: none;
+	user-select: none;
+}
+
+div{
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-o-user-select: none;
+	user-select: none;
+}
+
+input:focus {
+    outline:none;
+    box-shadow:none;
+    -moz-appearance: none;
+    border:0;
+    padding:0;
+}
+
+::-moz-focus-inner {
+    border: 0;
+    padding: 0;
+}
