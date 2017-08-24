@@ -1,4 +1,4 @@
-# Site Template
+# Webproject Boilerplate
 
 ## Requirements:
 
