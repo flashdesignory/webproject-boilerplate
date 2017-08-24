@@ -1,6 +1,6 @@
-#Site Template
+# Site Template
 
-##Requirements:
+## Requirements:
 
 The following should be installed on your system:
 
@@ -13,11 +13,11 @@ The following should be installed on your system:
 * Sass
   [http://sass-lang.com/](http://sass-lang.com/)
 
-##Dependencies:
+## Dependencies:
 To install all dependencies, navigate to the root directory in your terminal and run the following command:
 npm install
 
-##Usage:
+## Usage:
 This project uses Grunt as a build tool.
 
 To run grunt during development run the following command:
