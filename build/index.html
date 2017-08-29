@@ -23,24 +23,90 @@
 		<link href="files/css/main.min.css" rel="stylesheet">
 
 		<!-- Scripts -->
+		<script src="https://www.youtube.com/iframe_api"></script>
 		<script src="files/js/vendor.min.js"></script>
 		<script src="files/js/main.min.js"></script>
 	</head>
 	<body class="loading">
-		<h1 id="title" style="display:none;">template</h1>
+		<h1 id="meta-title" style="display:none;">template</h1>
 		<div id="breakpoints" style="display:none;"></div>
         <div id="audio" style="display:none;">&nbsp;</div>
-
         <div id="preload-container"></div>
         <div id="content-container">
-        	
+        	<header id="main-header">
+        		<div id="main-title" data-navigation-id="home" data-navigation-type="section">
+        			<a id="main-title-link" href="#" data-navigation-id="HOME" data-navigation-type="section">
+        				<div id="main-logo">template</div>
+        				<div id="main-release">date</div>
+        			</a>
+        		</div>
+        		<div id="main-menu-container" data-module="menu" data-type="container"> 
+        			<a id="main-menu-open" data-module="menu" data-type="open" href="#">Menu</a>
+        			<nav id="header-navigation" data-module="menu" data-type="navigation">
+						<ul>
+							<li><a href="#" data-navigation-id="VIDEO" data-navigation-type="overlay" class="navigation-item">VIDEO</a></li>
+							<li><a href="#" data-navigation-id="PHOTOS" data-navigation-type="section" class="navigation-item">PHOTOS</a></li>
+							<li><a href="#" data-navigation-id="STORY" data-navigation-type="section" class="navigation-item">STORY</a></li>
+							<li><a href="#" data-navigation-id="CAST" data-navigation-type="section" class="navigation-item">CAST</a></li>
+						</ul>
+					</nav><!-- end nav -->
+        		</div><!-- END main-menu-container -->
+        	</header><!-- END main-header -->
+        	<main id="main-content">
+        		<section id="home-page" class="site-section" data-section-title="HOME">
+        			<div id="home-page-background" class="section-background"></div>
+	        		<div id="home-page-header" class="section-header"><h1>Home Page</h1></div>
+	        	</section><!-- END home-page -->
+	        	<section id="photos-page" class="site-section" data-section-title="PHOTOS">
+	        		<div id="photos-page-background" class="section-background"></div>
+	        		<div id="home-page-header" class="section-header"><h1>Photos Page</h1></div>
+	        	</section><!-- END photos-page -->
+	        	<section id="story-page" class="site-section" data-section-title="STORY">
+	        		<div id="story-page-background" class="section-background"></div>
+	        		<div id="home-page-header" class="section-header"><h1>Story Page</h1></div>
+	        	</section><!-- END story-page -->
+	        	<section id="cast-page" class="site-section" data-section-title="CAST">
+	        		<div id="cast-page-background" class="section-background"></div>
+	        		<div id="home-page-header" class="section-header"><h1>Cast Page</h1></div>
+	        	</section><!-- END cast-page -->
+        	</main><!-- END main-content -->
+        	<footer id="main-footer" data-module="legal" data-type="footer">
+        		<div id="main-footer-content">
+        			<div id="main-footer-left">
+		        		<a id="main-footer-open" href="#" data-module="legal" data-type="open">legal</a>
+		        		<a id="main-footer-tickets" href="#">tickets</a>
+	        		</div>
+	        		<div id="main-footer-right">
+	        			<div id="main-footer-audio">audio on</div>
+	        			<div id="main-footer-social">
+	        				<div id="social-hashtag">#hashtag</div>
+	        				<ul id="social-buttons">
+	        					<li><a href="#"><span class="icon-facebook"></span></a></li>
+	        					<li><a href="#"><span class="icon-twitter"></span></a></li>
+	        					<li><a href="#"><span class="icon-instagram"></span></a></li>
+	        				</ul>
+	        			</div>
+	        		</div>
+        		</div>
+        		<div id="main-footer-legal" class="legal" data-module="legal" data-type="container">
+        			<a id="main-footer-close" href="#" data-module="legal" data-type="close">x</a>
+        		</div><!-- END main-footer-legal-->
+        	</footer><!-- END main-footer -->
+        </div><!-- END content-container -->
+        <div id="video-container" class="site-overlay" data-overlay-title="VIDEO">
+        	<div id="youtube-container">
+				<div id="youtbe-player">
+				</div><!-- end youtube-player -->
+			</div><!-- end youtube-container -->
+			<a id="video-container-close" href="#">x</a>
         </div>
-        <div id="video-container"></div>
-        <div id="update-container"></div>
-        <div id="rotate-container"></div>
+        <div id="intro-container" class="site-overlay" data-overlay-title="INTRO"></div>
+        <div id="update-container" class="site-message" data-message-title="UPDATE"></div>
+        <div id="rotate-container" class="site-message" data-message-title="ROTATE"></div>
 
 		<script>
 			$(document).ready(function(){
+				//$('img').on('dragstart', function(event) { event.preventDefault(); });
 				Site.init();
 			});
 		</script>

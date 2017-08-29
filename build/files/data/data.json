@@ -1,12 +1,4 @@
 {
-  "metadata": {
-    "title": "Title",
-    "description": "Short description of the site",
-    "keywords": "Keywords for search",
-    "defaultUrl": "http://www.google.com",
-    "defaultShareImage": "files/images/share.jpg",
-    "country": "us"
-  },
   "browser": {
     "date": "ONLY AT CINEMAS",
     "message": "To get the most out of this experience please<br/>upgrade to the latest version of Chrome, Firefox,<br/>Safari, or Internet Explorer."

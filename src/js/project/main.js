@@ -3,6 +3,7 @@ var Site = (function(){
 	
 	//references
 	var _window, _html, _body;
+	var _homeButton;
 
 	//
 	var _isMobile;
@@ -49,6 +50,8 @@ var Site = (function(){
 		} else {
 		  _window.bind('orientationchange', handleOnOrientationChange);
 		}
+
+		_homeButton.bind('click', handleNavigationRequest);
 	}
 
 	//handling scrolling of site
@@ -114,12 +117,29 @@ var Site = (function(){
 		setTimeout(handleOnResize, 750);
 	}
 
+	function handleNavigationRequest(event){
+		var type = $(this).data("navigation-type");
+		var id = $(this).data("navigation-id");
+
+		switch(type){
+			case "section":
+				NavigationController.goToPage(id);
+				break;
+			case "overlay":
+				break;
+		}
+
+		if(event) event.preventDefault();
+	}
+
 	//
 	function start(){
 		console.log(_debugId + ", start()");
 
 		_body.removeClass('loading').addClass('loaded');
 	}
+
+
 
 	return {
 		init:function(){
@@ -129,12 +149,19 @@ var Site = (function(){
 			_html = $('html');
 			_body = $('body');
 
+			_homeButton = $('#main-title-link');
+
 			_isMobile = Utils.isMobile();
 			_isMobile ? _body.addClass('mobile') : _body.addClass('desktop');
 
 			addListeners();
 			handleOnResize();
-			start();
+
+			NavigationController.init();
+			MenuController.init();
+			Legal.init();
+			
+			NavigationController.start();
 		}
 	}
 })();

@@ -5,6 +5,7 @@
 @import "modules/fixes";
 @import "modules/global";
 @import "modules/mixins";
+@import "modules/fonts";
 
 /**
  * box sizing
@@ -29,6 +30,195 @@ body{
 	background-color:$main-background-color; 
 	color:$main-text-color;
 }
+
+a{
+  color:$link-default-color;
+  &:hover{
+    color:$link-hover-color;
+  }
+}
+
+
+/**
+ * layout
+ **/
+#content-container{
+	position:relative;
+	width:100%;
+	height:100%;
+	overflow: hidden;
+}
+
+#main-header{
+	position:absolute;
+	left:0px;
+	top:0px;
+	width:100%;
+	height:$header-height;
+	background-color:orange;
+	z-index: 9000;
+}
+
+#main-footer{
+	position: absolute;
+	left:0px;
+	bottom:0px;
+	width:100%;
+	height:$footer-height;
+	background-color: blue;
+	z-index: 8000;
+}
+
+#main-content{
+	position:relative;
+	width:100%;
+	height:100%;
+	overflow: hidden;
+	z-index: 7000;
+}
+
+/** 
+ * Menu
+ **/
+#main-menu-container{
+ 	position: absolute;
+ 	right:0px;
+ 	top:0px;
+
+  #main-menu-open{
+    position: absolute;
+    right:0px;
+    top:0px;
+  }
+
+  #header-navigation{
+    position: absolute;
+    top:0px;
+    right:0px;
+    background-color: $main-navigation-color;
+    padding:$default-padding;
+    transition: all 0.5s ease;
+  }
+
+  &.expanded{
+    #main-menu-open{
+      display:none;
+    }
+    #header-navigation{
+      display:block;
+    }
+  }
+  &.collapsed{
+    #main-menu-open{
+      display:block;
+    }
+    #header-navigation{
+      display:none;
+    }
+  }
+}
+
+
+/** 
+ * Header
+ **/
+ #main-title{
+  display:inline-block;
+ }
+
+
+ /**
+  * Footer
+  **/
+  #main-footer-content{
+    display: table;
+    width:100%;
+    height:100%;
+    padding:0 $default-padding;
+  }
+  #main-footer-left{
+    display:table-cell;
+    vertical-align: middle;
+    width:50%;
+    text-align: left;
+  }
+
+  #main-footer-right{
+    display:table-cell;
+    vertical-align: middle;
+    width:50%;
+    text-align: right;
+  }
+
+  #main-footer-legal{
+  	position: absolute;
+  	width:100%;
+  	height:200px;
+  	left:0px;
+  	background-color:green;
+  	transition: all 0.5s ease;
+  	&.expanded{
+  		bottom:0px;
+  	}
+  	&.collapsed{
+  		bottom:-200px;
+  	}
+  }
+
+  #main-footer-open{
+  	display:inline-block;
+  }
+
+  #main-footer-close{
+  	position: absolute;
+  	right:10px;
+  	top:10px;
+  }
+
+  #main-footer-tickets{
+  	display:inline-block;
+  }
+
+  #main-footer-audio{
+  	display: inline-block;
+  }
+
+  #main-footer-social{
+  	display: inline-block;
+  }
+
+  #social-hashtag{
+  	display: inline-block;
+  }
+
+  #social-buttons{
+  	display: inline-block;
+  	li{
+  		display: inline-block;
+      padding: 0 $button-padding;
+  	}
+  }
+
+ /**
+  * Section
+  **/
+.site-section{
+	position: absolute;
+	left:0px;
+	top:0px;
+	width:100%;
+	height:100%;
+	display:none;
+}
+.setion-background{
+	position: absolute;
+}
+.section-header{
+	position: absolute;
+	left:0px;
+	top:100px;
+}
+
 
 /**
  * Breakpoints

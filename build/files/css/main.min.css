@@ -1,3 +1,6 @@
+/**
+ * Imports
+ **/
 /*! normalize.css v2.1.2 | MIT License | git.io/normalize */
 /* ==========================================================================
    HTML5 display definitions
@@ -335,7 +338,12 @@ html {
 
 a {
   border-style: none;
-  outline: 0; }
+  outline: 0;
+  text-decoration: none; }
+  a:active {
+    outline: none; }
+  a:focus {
+    outline: none; }
 
 img {
   border-style: none;
@@ -354,6 +362,9 @@ div {
   -o-user-select: none;
   user-select: none; }
 
+ul {
+  list-style: none; }
+
 input:focus {
   outline: none;
   box-shadow: none;
@@ -365,6 +376,38 @@ input:focus {
   border: 0;
   padding: 0; }
 
+@font-face {
+  font-family: 'icomoon';
+  src: url("../fonts/icomoon.eot?jie6ob");
+  src: url("../fonts/icomoon.eot?jie6ob#iefix") format("embedded-opentype"), url("../fonts/icomoon.ttf?jie6ob") format("truetype"), url("../fonts/icomoon.woff?jie6ob") format("woff"), url("../fonts/icomoon.svg?jie6ob#icomoon") format("svg");
+  font-weight: normal;
+  font-style: normal; }
+
+[class^="icon-"], [class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'icomoon' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale; }
+
+.icon-facebook:before {
+  content: "\ea90"; }
+
+.icon-instagram:before {
+  content: "\ea92"; }
+
+.icon-twitter:before {
+  content: "\ea96"; }
+
+/**
+ * box sizing
+ **/
 * {
   box-sizing: border-box;
   -webkit-box-sizing: border-box;
@@ -374,6 +417,9 @@ input:focus {
   margin: 0;
   padding: 0; }
 
+/**
+ * general
+ **/
 html, body {
   width: 100%;
   height: 100%;
@@ -384,6 +430,159 @@ body {
   background-color: #333333;
   color: #cccccc; }
 
+a {
+  color: #ffffff; }
+  a:hover {
+    color: #00ff00; }
+
+/**
+ * layout
+ **/
+#content-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden; }
+
+#main-header {
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  width: 100%;
+  height: 100px;
+  background-color: orange;
+  z-index: 9000; }
+
+#main-footer {
+  position: absolute;
+  left: 0px;
+  bottom: 0px;
+  width: 100%;
+  height: 50px;
+  background-color: blue;
+  z-index: 8000; }
+
+#main-content {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 7000; }
+
+/** 
+ * Menu
+ **/
+#main-menu-container {
+  position: absolute;
+  right: 0px;
+  top: 0px; }
+  #main-menu-container #main-menu-open {
+    position: absolute;
+    right: 0px;
+    top: 0px; }
+  #main-menu-container #header-navigation {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    background-color: #0000ff;
+    padding: 20px;
+    transition: all 0.5s ease; }
+  #main-menu-container.expanded #main-menu-open {
+    display: none; }
+  #main-menu-container.expanded #header-navigation {
+    display: block; }
+  #main-menu-container.collapsed #main-menu-open {
+    display: block; }
+  #main-menu-container.collapsed #header-navigation {
+    display: none; }
+
+/** 
+ * Header
+ **/
+#main-title {
+  display: inline-block; }
+
+/**
+  * Footer
+  **/
+#main-footer-content {
+  display: table;
+  width: 100%;
+  height: 100%;
+  padding: 0 20px; }
+
+#main-footer-left {
+  display: table-cell;
+  vertical-align: middle;
+  width: 50%;
+  text-align: left; }
+
+#main-footer-right {
+  display: table-cell;
+  vertical-align: middle;
+  width: 50%;
+  text-align: right; }
+
+#main-footer-legal {
+  position: absolute;
+  width: 100%;
+  height: 200px;
+  left: 0px;
+  background-color: green;
+  transition: all 0.5s ease; }
+  #main-footer-legal.expanded {
+    bottom: 0px; }
+  #main-footer-legal.collapsed {
+    bottom: -200px; }
+
+#main-footer-open {
+  display: inline-block; }
+
+#main-footer-close {
+  position: absolute;
+  right: 10px;
+  top: 10px; }
+
+#main-footer-tickets {
+  display: inline-block; }
+
+#main-footer-audio {
+  display: inline-block; }
+
+#main-footer-social {
+  display: inline-block; }
+
+#social-hashtag {
+  display: inline-block; }
+
+#social-buttons {
+  display: inline-block; }
+  #social-buttons li {
+    display: inline-block;
+    padding: 0 5px; }
+
+/**
+  * Section
+  **/
+.site-section {
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  width: 100%;
+  height: 100%;
+  display: none; }
+
+.setion-background {
+  position: absolute; }
+
+.section-header {
+  position: absolute;
+  left: 0px;
+  top: 100px; }
+
+/**
+ * Breakpoints
+ **/
 #breakpoints {
   display: fixed;
   left: 0;

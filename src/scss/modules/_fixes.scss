@@ -5,6 +5,13 @@ html{
 a{
 	border-style:none; 
 	outline:0;	
+	text-decoration: none;
+	&:active{
+		outline:none;
+	}
+	&:focus{
+		outline:none;
+	}
 }
 
 img{
@@ -24,6 +31,10 @@ div{
 	-moz-user-select: none;
 	-o-user-select: none;
 	user-select: none;
+}
+
+ul{
+	list-style: none;
 }
 
 input:focus {
