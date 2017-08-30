@@ -12,7 +12,7 @@ var MenuController = (function(){
 		$(_elements["open"]).bind('click', open);
 		$(_elements["navigation"]).bind('click', close);
 
-		$(document).bind('NAVIGATE_TO_PAGE', updateNavigation);
+		$(NavigationController).bind('NAVIGATE_TO_PAGE', updateNavigation);
 	}
 
 	function handleOnClick(event){

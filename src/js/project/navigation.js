@@ -9,7 +9,7 @@ var NavigationController = (function(){
 		for(var i = 0; i<_pages.length; i++){
 			if(_pages[i].getName() == name){
 				if(!_pages[i].getIsActive()){
-					$(document).trigger("NAVIGATE_TO_PAGE", name);
+					$(NavigationController).trigger("NAVIGATE_TO_PAGE", name);
 					_pages[i].willAppear();
 					_pages[i].show();
 					_pages[i].didAppear();

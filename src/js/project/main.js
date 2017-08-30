@@ -33,7 +33,6 @@ var Site = (function(){
 	}
 
 	function addListeners(){
-		//console.log(_debugId + ", addListeners()");
 		_window.bind('scroll', handleOnScroll);
 
 		if(typeof window.orientation === 'undefined') {
@@ -63,7 +62,7 @@ var Site = (function(){
 		    }
 		}
 	}
-
+	
 	function checkEndOfScroll() {
 	    if (new Date() - _scrollTime < _scrollDelta) {
 	        setTimeout(checkEndOfScroll, _scrollDelta);
@@ -129,13 +128,19 @@ var Site = (function(){
 		if(event) event.preventDefault();
 	}
 
-	//
-	function start(){
-		//console.log(_debugId + ", start()");
+	function handleDataParsed(){
+		console.log(_debugId + " : handleDataParsed()");
+		console.log(DataManager.getDataByGroup("browser").message);
+		addListeners();
+		handleOnResize();
+
+		NavigationController.init();
+		MenuController.init();
+		Legal.init();
+
 		_body.removeClass('loading').addClass('loaded');
+		NavigationController.start();
 	}
-
-
 
 	return {
 		init:function(){
@@ -149,14 +154,7 @@ var Site = (function(){
 			_isMobile = Utils.isMobile();
 			_isMobile ? _body.addClass('mobile') : _body.addClass('desktop');
 
-			addListeners();
-			handleOnResize();
-
-			NavigationController.init();
-			MenuController.init();
-			Legal.init();
-	
-			NavigationController.start();
+			DataManager.load("files/data/data.json", handleDataParsed);
 		}
 	}
 })();
