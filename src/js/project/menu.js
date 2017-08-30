@@ -11,10 +11,11 @@ var MenuController = (function(){
 
 		$(_elements["open"]).bind('click', open);
 		$(_elements["navigation"]).bind('click', close);
+
+		$(document).bind('NAVIGATE_TO_PAGE', updateNavigation);
 	}
 
 	function handleOnClick(event){
-		console.log(_debugId + " : handleOnClick(" + $(this).data("navigation-id") + ")");
 		var type = $(this).data("navigation-type");
 		var id = $(this).data("navigation-id");
 
@@ -43,7 +44,7 @@ var MenuController = (function(){
 			_expanded = false;
 		}
 		updateDisplay();
-		//if(event) event.preventDefault();
+		if(event) event.preventDefault();
 	}
 
 	function updateDisplay(){
@@ -55,10 +56,22 @@ var MenuController = (function(){
 		}
 	}
 
+	function updateNavigation(event, page){
+		for(var i = 0; i<_buttons.length; i++){
+			var type =$(_buttons[i]).data("navigation-type");
+			var id = $(_buttons[i]).data("navigation-id");
+			if(type == "section"){
+				if(id == page){
+					$(_buttons[i]).addClass("active");
+				}else{
+					$(_buttons[i]).removeClass("active");
+				}
+			}
+		}
+	}
+
 	return {
 		init:function(){
-			console.log(_debugId + " : init()");
-
 			var elements =$(document).find('[data-module="menu"]');
 			for(var i = 0; i<elements.length; i++){
 				var type = $(elements[i]).data("type");

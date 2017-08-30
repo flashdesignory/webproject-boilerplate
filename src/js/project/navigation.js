@@ -9,6 +9,7 @@ var NavigationController = (function(){
 		for(var i = 0; i<_pages.length; i++){
 			if(_pages[i].getName() == name){
 				if(!_pages[i].getIsActive()){
+					$(document).trigger("NAVIGATE_TO_PAGE", name);
 					_pages[i].willAppear();
 					_pages[i].show();
 					_pages[i].didAppear();
@@ -24,11 +25,29 @@ var NavigationController = (function(){
 	}
 
 	function navigateToOverlay(name){
-		console.log(_debugId + " : navigateToOverlay(" + name + ")");
+		//console.log(_debugId + " : navigateToOverlay(" + name + ")");
+		for(var i = 0; i<_overlays.length; i++){
+			if(_overlays[i].getName() == name){
+				if(!_overlays[i].getIsActive()){
+					_overlays[i].willAppear();
+					_overlays[i].show();
+					_overlays[i].didAppear();
+				}
+			}
+		}
 	}
 
-	function navigateFromOveraly(name){
-		console.log(_debugId + " : navigateFromOveraly(" + name + ")");
+	function navigateFromOverlay(name){
+		//console.log(_debugId + " : navigateFromOveraly(" + name + ")");
+		for(var i = 0; i<_overlays.length; i++){
+			if(_overlays[i].getName() == name){
+				if(_overlays[i].getIsActive()){
+					_overlays[i].willDisappear();
+					_overlays[i].hide();
+					_overlays[i].didDisappear();
+				}
+			}
+		}
 	}
 
 	return {
@@ -40,13 +59,15 @@ var NavigationController = (function(){
 			}
 		},
 		init:function(){
-			console.log(_debugId + " : init()");
+			//console.log(_debugId + " : init()");
 
 			var sections = $('.site-section');
-			
-			for(var i = 0; i<sections.length; i++){
-				var title = $(sections[i]).data("section-title");
-				var section;
+			var overlays = $('.site-overlay');
+
+			var title, section, overlay, i;
+
+			for(i = 0; i<sections.length; i++){
+				title = $(sections[i]).data("section-title");
 
 				switch(title){
 					case "HOME":
@@ -68,9 +89,24 @@ var NavigationController = (function(){
 				section.init();
 				_pages.push(section);
 			}
+
+			for(i = 0; i<overlays.length; i++){
+				title  = $(overlays[i]).data("overlay-title");
+				switch(title){
+					case "INTRO":
+						overlay = new IntroOverlay(overlays[i].id, overlays[i], title);
+						break;
+					case "VIDEO":
+						overlay = new VideoOverlay(overlays[i].id, overlays[i], title);
+						break;
+				}
+
+				overlay.init();
+				_overlays.push(overlay);
+			}
 		},
 		goToPage:function(id){
-			console.log(_debugId + " : goToPage()");
+			//console.log(_debugId + " : goToPage()");
 			navigateToPage(id);
 		},
 		showOverlay:function(id){
@@ -80,7 +116,7 @@ var NavigationController = (function(){
 			navigateFromOverlay(id);
 		},
 		start:function(){
-			console.log(_debugId + " : start()");
+			//console.log(_debugId + " : start()");
 			navigateToPage("HOME");
 		}
 	}

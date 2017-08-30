@@ -434,6 +434,8 @@ a {
   color: #ffffff; }
   a:hover {
     color: #00ff00; }
+  a.active {
+    color: #00ff00; }
 
 /**
  * layout
@@ -579,6 +581,24 @@ a {
   position: absolute;
   left: 0px;
   top: 100px; }
+
+/**
+  * Overlay
+  **/
+.site-overlay {
+  position: fixed;
+  left: 0px;
+  top: 0px;
+  width: 100%;
+  height: 100%;
+  display: none;
+  background-color: #000000;
+  z-index: 10000; }
+
+#video-container-close {
+  position: absolute;
+  right: 10px;
+  top: 10px; }
 
 /**
  * Breakpoints

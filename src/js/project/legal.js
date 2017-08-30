@@ -9,7 +9,7 @@ var Legal = (function(){
 	}
 
 	function handleOnClick(event){
-		console.log(_debugId + " : handleOnClick()");
+		//console.log(_debugId + " : handleOnClick()");
 		_expanded = !_expanded;
 		updateDisplay();
 		if(event) event.preventDefault();
@@ -26,7 +26,7 @@ var Legal = (function(){
 
 	return {
 		init:function(){
-			console.log(_debugId + " : init()");
+			//console.log(_debugId + " : init()");
 			var elements =$(document).find('[data-module="legal"]');
 			for(var i = 0; i<elements.length; i++){
 				var type = $(elements[i]).data("type");

@@ -8,11 +8,11 @@
 		}
 
 		function addListeners(){
-			console.log(_debugId + " : addListeners()");
+			//console.log(_debugId + " : addListeners()");
 		}
 
 		function removeListeners(){
-			console.log(_debugId + " : removeListeners()");
+			//console.log(_debugId + " : removeListeners()");
 		}
 
 		this.didAppear = function(){

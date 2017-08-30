@@ -33,8 +33,7 @@ var Site = (function(){
 	}
 
 	function addListeners(){
-		console.log(_debugId + ", addListeners()");
-
+		//console.log(_debugId + ", addListeners()");
 		_window.bind('scroll', handleOnScroll);
 
 		if(typeof window.orientation === 'undefined') {
@@ -76,7 +75,6 @@ var Site = (function(){
 
 	//handling of resize / orientation
 	function handleOnResize(event){
-		//Debug.log(_debugId, "handleOnResize()");
 		_isResizing = true;
 		_windowWidth = _window.width();
 		_windowHeight = _window.height();
@@ -88,7 +86,6 @@ var Site = (function(){
 		}
 
 	    var temp = Utils.getBreakpoint();
-	   // console.log(_debugId + ", w: " + _windowWidth + ", h: " + _windowHeight + ", b: " + temp + ", rh: " + _window.height());
 	    if(temp != _breakpoint){
 	    	_breakpoint = temp;
 	    	console.log(_debugId + ", breakpoint: " +  _breakpoint);
@@ -134,8 +131,7 @@ var Site = (function(){
 
 	//
 	function start(){
-		console.log(_debugId + ", start()");
-
+		//console.log(_debugId + ", start()");
 		_body.removeClass('loading').addClass('loaded');
 	}
 
@@ -143,8 +139,7 @@ var Site = (function(){
 
 	return {
 		init:function(){
-			console.log(_debugId + ", init()");
-
+			//console.log(_debugId + ", init()");
 			_window = $(window);
 			_html = $('html');
 			_body = $('body');
@@ -160,7 +155,7 @@ var Site = (function(){
 			NavigationController.init();
 			MenuController.init();
 			Legal.init();
-			
+	
 			NavigationController.start();
 		}
 	}
