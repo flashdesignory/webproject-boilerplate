@@ -7,6 +7,11 @@ var Site = (function(){
 
 	//
 	var _isMobile;
+	var _lockOrientation = false;
+	var _lockMinSize = true;
+	var _lockBrowserVersion = true;
+	var _minIEVersion = 10;
+	var _messages = [];
 
 	//resize / orientation
 	var _windowWidth, _windowHeight;
@@ -80,8 +85,18 @@ var Site = (function(){
 
 		if(_windowWidth >= _windowHeight){
 			_orientation = "landscape";
+			_body.addClass("landscape").removeClass("portrait");
+			
+			if(_lockOrientation && _isMobile){
+				_messages["ROTATE"].style.display = "block";
+			}
 		}else{
 			_orientation = "portrait";
+			_body.addClass("portrait").removeClass("landscape");
+
+			if(_lockOrientation && _isMobile){
+				_messages["ROTATE"].style.display = "none";
+			}
 		}
 
 	    var temp = Utils.getBreakpoint();
@@ -110,7 +125,7 @@ var Site = (function(){
 
 	function handleOnOrientationChange(event){
 		_orientaionChanged = true;
-		setTimeout(handleOnResize, 750);
+		setTimeout(handleOnResize, 250);
 	}
 
 	function handleNavigationRequest(event){
@@ -134,12 +149,17 @@ var Site = (function(){
 		addListeners();
 		handleOnResize();
 
-		NavigationController.init();
-		MenuController.init();
-		Legal.init();
+		if(Utils.isIE() && Utils.getIEVersion() < _minIEVersion && _lockBrowserVersion){
+			_messages["UPDATE"].style.display = "block";
+		}else{
+			//browser is new enough.. let's start
+			NavigationController.init();
+			MenuController.init();
+			Legal.init();
+			NavigationController.start();
+		}
 
 		_body.removeClass('loading').addClass('loaded');
-		NavigationController.start();
 	}
 
 	return {
@@ -148,6 +168,15 @@ var Site = (function(){
 			_window = $(window);
 			_html = $('html');
 			_body = $('body');
+
+			//messages for user feedback
+			var messages = $('.site-message');
+			var title;
+
+			for(i = 0; i<messages.length; i++){
+				title = $(messages[i]).data("message-title");
+				_messages[title] = messages[i];
+			}
 
 			_homeButton = $('#main-title-link');
 

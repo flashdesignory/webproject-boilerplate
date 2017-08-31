@@ -31,7 +31,6 @@
 		<h1 id="meta-title" style="display:none;">template</h1>
 		<div id="breakpoints" style="display:none;"></div>
         <div id="audio" style="display:none;">&nbsp;</div>
-        <div id="preload-container"></div>
         <div id="content-container">
         	<header id="main-header">
         		<div id="main-title" data-navigation-id="home" data-navigation-type="section">
@@ -95,15 +94,16 @@
         </div><!-- END content-container -->
         <div id="video-container" class="site-overlay" data-module="video" data-type="container" data-overlay-title="VIDEO">
         	<div id="youtube-container">
-				<div id="youtbe-player">
+				<div id="youtube-player" data-module="video" data-type="player">
 				</div><!-- end youtube-player -->
 			</div><!-- end youtube-container -->
 			<a id="video-container-close" data-module="video" data-type="close" href="#">x</a>
         </div>
         <div id="intro-container" class="site-overlay" data-overlay-title="INTRO"></div>
-        <div id="update-container" class="site-message" data-message-title="UPDATE"></div>
-        <div id="rotate-container" class="site-message" data-message-title="ROTATE"></div>
-
+        <div id="update-container" class="site-message" data-message-title="UPDATE">UPDATE BROWSER</div>
+        <div id="rotate-container" class="site-message" data-message-title="ROTATE">ROTATE DEVICE</div>
+        <div id="maximize-container" class="site-message" data-message-title="MAXIMIZE">MAXIMIZE WINDOW</div>
+        <div id="preload-container">LOADING</div>
 		<script>
 			$(document).ready(function(){
 				//$('img').on('dragstart', function(event) { event.preventDefault(); });

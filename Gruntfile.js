@@ -3,7 +3,7 @@ module.exports = function(grunt){
 		sass: {
 			build: {
 				options: {
-					style: 'expanded'
+					outputStyle: 'expanded'
 				},
 				files: {
 					'build/files/css/main.min.css':'src/scss/main.scss'
@@ -11,7 +11,7 @@ module.exports = function(grunt){
 			},
 			dist: {
 				options: {
-					style: 'compressed'
+					outputStyle: 'compressed'
 				},
 				files: {
 					'build/files/css/main.min.css':'src/scss/main.scss'

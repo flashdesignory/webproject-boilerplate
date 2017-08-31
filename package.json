@@ -9,7 +9,7 @@
     "grunt-browser-sync": "latest",
     "grunt-contrib-concat": "latest",
     "grunt-contrib-copy": "^1.0.0",
-    "grunt-contrib-uglify": "latest",
+    "grunt-contrib-uglify": "git://github.com/gruntjs/grunt-contrib-uglify.git#harmony",
     "grunt-contrib-watch": "latest",
     "grunt-sass": "^2.0.0"
   }
