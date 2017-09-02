@@ -14,7 +14,7 @@ var Site = (function(){
 	var _messages = [];
 
 	//resize / orientation
-	var _windowWidth, _windowHeight;
+	var _windowWidth, _windowHeight, _windowRatio;
 	var _minHeight = 672;
 	var _minWidth = 320;
 	var _orientation;
@@ -32,6 +32,12 @@ var Site = (function(){
 	var _scrollTimeOut = false;
 	var _scrollDelta = 200;
 	var _isScrolling = false;
+
+	//background
+	var _backgroundWidth = 1920;
+	var _backgroundHeight = 1080;
+	var _backgroundRatio = _backgroundWidth / _backgroundHeight;
+	var _backgroundImages = [];
 
 	function parseData(){
 		console.log(_debugId + ", parseData()");
@@ -82,6 +88,7 @@ var Site = (function(){
 		_isResizing = true;
 		_windowWidth = _window.width();
 		_windowHeight = _window.height();
+		_windowRatio = _windowWidth / _windowHeight;
 
 		if(_windowWidth >= _windowHeight){
 			_orientation = "landscape";
@@ -111,6 +118,8 @@ var Site = (function(){
 	        setTimeout(checkEndOfResize, _resizeDelta);
 	    }
 
+	    resizeBackgrounds();
+
 	    _orientaionChanged = false;
 	}
 
@@ -126,6 +135,43 @@ var Site = (function(){
 	function handleOnOrientationChange(event){
 		_orientaionChanged = true;
 		setTimeout(handleOnResize, 250);
+	}
+
+	function resizeBackgrounds(){
+		var newWidth, newHeight, background;
+
+
+		for(i = 0; i<_backgroundImages.length; i++){
+			background = $(_backgroundImages[i]);
+			
+			//if(background.is(':visible')){
+				newWidth = _windowWidth;
+	            newHeight = Math.round(newWidth/_backgroundRatio);
+				background.width(newWidth);
+	            background.height(newHeight);
+
+	            if(newHeight<_windowHeight){
+	                newHeight = _windowHeight;
+	                newWidth = Math.round(newHeight*_backgroundRatio);
+	                background.width(newWidth);
+	                background.height(newHeight);
+	            }
+
+	            if(background.attr("data-position") == "center"){
+					if(newWidth > _windowWidth){
+						background.css("left", ((_windowWidth-newWidth)/2) + "px");
+					}else{
+						background.css("left", "0px");
+					}
+					
+					if(newHeight > _windowHeight){
+						background.css("top", ((_windowHeight - newHeight)/2) + "px");
+					}else{
+						background.css("top", "0px");
+					}
+				}
+			//}
+		}
 	}
 
 	function handleNavigationRequest(event){
@@ -177,6 +223,8 @@ var Site = (function(){
 				title = $(messages[i]).data("message-title");
 				_messages[title] = messages[i];
 			}
+
+			_backgroundImages = $('.section-background');
 
 			_homeButton = $('#main-title-link');
 

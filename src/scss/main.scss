@@ -64,6 +64,7 @@ a{
 	width:100%;
 	height:100%;
 	overflow: hidden;
+  min-height: 600px;
 }
 
 #main-header{
@@ -227,9 +228,16 @@ a{
 	height:100%;
 	display:none;
 }
-.setion-background{
+.section-background{
 	position: absolute;
+  left:0px;
+  top:0px;
 }
+
+.section-background img{
+  width:100%;
+}
+
 .section-header{
 	position: absolute;
 	left:0px;

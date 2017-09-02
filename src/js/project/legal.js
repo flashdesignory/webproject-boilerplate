@@ -18,7 +18,6 @@ var Legal = (function(){
 	function updateDisplay(){
 		if(_expanded){
 			$(_elements["container"]).addClass("expanded").removeClass("collapsed");
-
 		}else{
 			$(_elements["container"]).removeClass("expanded").addClass("collapsed");
 		}
