@@ -86,8 +86,8 @@ var Site = (function(){
 	//handling of resize / orientation
 	function handleOnResize(event){
 		_isResizing = true;
-		_windowWidth = _window.width();
-		_windowHeight = _window.height();
+		_windowWidth = $(document).width();
+		_windowHeight = $(document).height();
 		_windowRatio = _windowWidth / _windowHeight;
 
 		if(_windowWidth >= _windowHeight){
@@ -120,7 +120,17 @@ var Site = (function(){
 
 	    resizeBackgrounds();
 
-	    _orientaionChanged = false;
+	    //if(_orientationChanged){
+	    	//$('html body').scrollTop(0);
+	    	//window.scrollTo(0, 0);
+	  // }
+
+	  	$('body').animate({
+            scrollTop: '0'
+        }, 0);
+
+
+	    _orientationChanged = false;
 	}
 
 	function checkEndOfResize() {
@@ -133,8 +143,8 @@ var Site = (function(){
 	}
 
 	function handleOnOrientationChange(event){
-		_orientaionChanged = true;
-		setTimeout(handleOnResize, 250);
+		_orientationChanged = true;
+		setTimeout(handleOnResize, 500);
 	}
 
 	function resizeBackgrounds(){
