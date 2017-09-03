@@ -1,10 +1,10 @@
 @font-face {
   font-family: 'icomoon';
-  src:  url('../fonts/icomoon.eot?jie6ob');
-  src:  url('../fonts/icomoon.eot?jie6ob#iefix') format('embedded-opentype'),
-    url('../fonts/icomoon.ttf?jie6ob') format('truetype'),
-    url('../fonts/icomoon.woff?jie6ob') format('woff'),
-    url('../fonts/icomoon.svg?jie6ob#icomoon') format('svg');
+  src:  url('../fonts/icomoon.eot?i9maim');
+  src:  url('../fonts/icomoon.eot?i9maim#iefix') format('embedded-opentype'),
+    url('../fonts/icomoon.ttf?i9maim') format('truetype'),
+    url('../fonts/icomoon.woff?i9maim') format('woff'),
+    url('../fonts/icomoon.svg?i9maim#icomoon') format('svg');
   font-weight: normal;
   font-style: normal;
 }
@@ -32,4 +32,47 @@
 }
 .icon-twitter:before {
   content: "\ea96";
+}
+
+.icon-preloader:before {
+  content: "\e980";
+}
+
+.icon-menu:before {
+  content: "\e9bd";
+}
+.icon-plus:before {
+  content: "\ea0a";
+}
+.icon-minus:before {
+  content: "\ea0b";
+}
+.icon-close:before {
+  content: "\ea0f";
+}
+
+.icon-play:before {
+  content: "\ea15";
+}
+.icon-pause:before {
+  content: "\ea16";
+}
+.icon-audio-unmute:before {
+  content: "\ea27";
+}
+.icon-audio-mute:before {
+  content: "\ea29";
+}
+
+.icon-circle-up:before {
+  content: "\ea41";
+}
+.icon-circle-right:before {
+  content: "\ea42";
+}
+.icon-circle-down:before {
+  content: "\ea43";
+}
+.icon-circle-left:before {
+  content: "\ea44";
 }

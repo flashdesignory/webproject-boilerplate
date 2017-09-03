@@ -40,7 +40,7 @@
         			</a>
         		</div>
         		<div id="main-menu-container" data-module="menu" data-type="container"> 
-        			<a id="main-menu-open" data-module="menu" data-type="open" href="#">Menu</a>
+        			<a id="main-menu-open" data-module="menu" data-type="open" href="#"><span class="icon-menu"></span></a>
         			<nav id="header-navigation" data-module="menu" data-type="navigation">
 						<ul>
 							<li><a href="#" data-navigation-id="VIDEO" data-navigation-type="overlay" class="navigation-item">VIDEO</a></li>
@@ -56,7 +56,6 @@
         			<div id="home-page-background" class="section-background" data-position="center">
         				<img src="files/images/background_home.jpg"/>
         			</div>
-	        		<div id="home-page-header" class="section-header"><h1>Home Page</h1></div>
 	        	</section><!-- END home-page -->
 	        	<section id="photos-page" class="site-section" data-section-title="PHOTOS">
 	        		<div id="photos-page-background" class="section-background" data-position="center">
@@ -80,32 +79,40 @@
 	        				</div>
 	        			</div>
         			</div>
-	        		<a id="gallery-prev" href="#">&nbsp;</a>
-	        		<a id="gallery-next" href="#">&nbsp;</a>
+	        		<a id="gallery-prev" href="#"><span class="icon-circle-left"></span></a>
+	        		<a id="gallery-next" href="#"><span class="icon-circle-right"></span></a>
 	        	</section><!-- END photos-page -->
 	        	<section id="story-page" class="site-section" data-section-title="STORY">
 	        		<div id="story-page-background" class="section-background" data-position="center">
         				<img src="files/images/background_story.jpg"/>
         			</div>
-	        		<div id="story-page-header" class="section-header"><h1>Story Page</h1></div>
+	        		<div id="story">
+	        			<div id="story-content">
+	        				Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut et ipsum sed arcu porta tincidunt a eu lectus. Aenean vitae lacus velit. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Pellentesque tristique porttitor gravida. Aenean consectetur feugiat ligula sodales consequat. Sed ornare sapien leo, vitae rutrum libero semper eu. Quisque vulputate odio id orci venenatis interdum. Quisque facilisis massa at enim imperdiet, in venenatis turpis scelerisque. Aenean ultricies feugiat velit, pulvinar mattis libero. Suspendisse convallis venenatis nulla eu accumsan. Etiam lorem neque, tristique sed ipsum sed, ornare interdum quam. Nullam ac aliquam metus.
+
+							Vestibulum egestas metus tellus, a vulputate turpis sagittis ac. Sed enim turpis, elementum nec euismod ac, cursus non orci. Nullam tincidunt elementum malesuada. Sed ac risus suscipit, aliquet lorem eu, faucibus elit. Nam ultricies varius malesuada. Aenean vitae diam in risus consequat commodo sed at neque. Pellentesque placerat ac mauris ac lacinia.
+
+							Quisque accumsan sodales nisl, eget egestas sapien semper sed. Phasellus sem ligula, consectetur venenatis dictum ut, luctus eget est. Nulla varius turpis semper, tempus dolor sed, eleifend dolor. In dictum nulla sed odio venenatis accumsan. Vestibulum venenatis ultrices lacus quis accumsan. Suspendisse imperdiet tincidunt velit, sagittis vulputate tellus. Sed ultrices purus eu ipsum sodales accumsan. In hac habitasse platea dictumst. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nullam facilisis sagittis elit, non semper metus sodales ac. Donec laoreet congue diam, eu pellentesque ante ultrices in. Maecenas non tellus et arcu euismod dignissim. Nunc accumsan tellus vitae lacinia eleifend. Nulla elementum, velit ut finibus bibendum, massa elit fringilla elit, id vehicula arcu mauris vel nibh. Curabitur vel magna feugiat, blandit nibh vitae, rutrum lorem. Phasellus at bibendum justo, a facilisis sapien.
+	        			</div>
+	        		</div>
 	        	</section><!-- END story-page -->
 	        	<section id="cast-page" class="site-section" data-section-title="CAST">
 	        		<div id="cast-page-background" class="section-background" data-position="center">
         				<img src="files/images/background_cast.jpg"/>
         			</div>
-	        		<div id="cast-page-header" class="section-header"><h1>Cast Page</h1></div>
 	        	</section><!-- END cast-page -->
         	</main><!-- END main-content -->
         	<footer id="main-footer" data-module="legal" data-type="footer">
         		<div id="main-footer-content">
         			<div id="main-footer-left">
 		        		<a id="main-footer-open" href="#" data-module="legal" data-type="open">legal</a>
+		        		<div class="footer-section-divider"> | </div>
 		        		<a id="main-footer-tickets" href="#">tickets</a>
 	        		</div>
 	        		<div id="main-footer-right">
-	        			<div id="main-footer-audio">audio on</div>
+	        			<div id="main-footer-audio"><a href="#"><span class="icon-audio-unmute"></span></a></div>
+	        			<div class="footer-section-divider"> | </div>
 	        			<div id="main-footer-social">
-	        				<div id="social-hashtag">#hashtag</div>
 	        				<ul id="social-buttons">
 	        					<li><a href="#"><span class="icon-facebook"></span></a></li>
 	        					<li><a href="#"><span class="icon-twitter"></span></a></li>
@@ -115,7 +122,7 @@
 	        		</div>
         		</div>
         		<div id="main-footer-legal" class="legal" data-module="legal" data-type="container">
-        			<a id="main-footer-close" href="#" data-module="legal" data-type="close">x</a>
+        			<a id="main-footer-close" href="#" data-module="legal" data-type="close"><span class="icon-close"></span></a>
         		</div><!-- END main-footer-legal-->
         	</footer><!-- END main-footer -->
         </div><!-- END content-container -->
@@ -124,7 +131,7 @@
 				<div id="youtube-player" data-module="video" data-type="player">
 				</div><!-- end youtube-player -->
 			</div><!-- end youtube-container -->
-			<a id="video-container-close" data-module="video" data-type="close" href="#">x</a>
+			<a id="video-container-close" data-module="video" data-type="close" href="#"><span class="icon-close"></span></a>
         </div>
         <div id="intro-container" class="site-overlay" data-overlay-title="INTRO"></div>
         <div id="update-container" class="site-message" data-message-title="UPDATE">UPDATE BROWSER</div>

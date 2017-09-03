@@ -42,6 +42,10 @@ a{
   }
 }
 
+.mobile a:hover{
+  color:$link-default-color;
+}
+
 
 /**
  * layout
@@ -106,8 +110,9 @@ a{
 
   #main-menu-open{
     position: absolute;
-    right:0px;
-    top:0px;
+    right:$default-padding;
+    top:$default-padding;
+    font-size:26px;
   }
 
   #header-navigation{
@@ -143,6 +148,8 @@ a{
  **/
  #main-title{
   display:inline-block;
+  padding-left:$default-padding;
+  padding-top:$default-padding;
  }
 
 
@@ -158,14 +165,12 @@ a{
   #main-footer-left{
     display:table-cell;
     vertical-align: middle;
-    width:50%;
     text-align: left;
   }
 
   #main-footer-right{
     display:table-cell;
     vertical-align: middle;
-    width:50%;
     text-align: right;
   }
 
@@ -186,20 +191,23 @@ a{
 
   #main-footer-open{
   	display:inline-block;
+    padding: 0 $button-padding;
   }
 
   #main-footer-close{
   	position: absolute;
-  	right:10px;
-  	top:10px;
+  	right:$default-padding;
+  	top:$default-padding;
   }
 
   #main-footer-tickets{
   	display:inline-block;
+    padding: 0 $button-padding;
   }
 
   #main-footer-audio{
   	display: inline-block;
+    padding: 0 $button-padding;
   }
 
   #main-footer-social{
@@ -216,6 +224,10 @@ a{
   		display: inline-block;
       padding: 0 $button-padding;
   	}
+  }
+
+  .footer-section-divider{
+    display: inline-block;
   }
 
  /**
@@ -286,8 +298,10 @@ a{
     margin:auto;
     width:40px;
     height:40px;
-    background-color:orange;
     z-index: 7003;
+    text-align: center;
+    line-height: 46px;
+    font-size:32px;
  }
 
  #gallery-next{
@@ -298,9 +312,27 @@ a{
     margin:auto;
     width:40px;
     height:40px;
-    background-color:orange;
     z-index: 7003;
+    text-align: center;
+    line-height: 46px;
+    font-size:32px;
  }
+
+/** 
+ * Story
+ **/
+ #story{
+  position: absolute;
+  right:50px;
+  top:200px;
+  bottom:100px;
+  width:400px;
+  height:300px;
+  overflow: hidden;
+  margin:auto;
+  padding:0 $default-padding;
+ }
+
 
 /**
   * Overlay
@@ -318,8 +350,8 @@ a{
 
 #video-container-close{
   position: absolute;
-  right:10px;
-  top:10px;
+  right:$default-padding;
+  top:$default-padding;
   z-index: 11001;
 }
 
@@ -360,6 +392,13 @@ a{
 @media only screen and (max-width: 319px){
   #maximize-container{
     display:block;
+  }
+}
+
+@media only screen and (max-width: 500px){
+  #story{
+    right:0px;
+    width:100%;
   }
 }
 
