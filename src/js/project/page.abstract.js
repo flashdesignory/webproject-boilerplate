@@ -9,35 +9,17 @@
 			var _isActive = false;
 
 			var _isPageTransitioning = false;
-			var _transitionEvent = whichTransitionEvent();
-			var _transitionOutClassPrev, _transitionOutClassNext, _transitionInClassPrev, _transitionInClassNext;
+			var _pageTransitionEvent = Transitions.getTransitionEvent();
+			var _pageTransitionOutClassPrev, _pageTransitionOutClassNext, _pageTransitionInClassPrev, _pageTtransitionInClassNext;
 
 			function handlePageTransitionComplete(event){
 				if(!_isActive){
-					$(_node).removeClass(_transitionOutClassNext + " " + _transitionOutClassPrev + " site-section-current site-section-prev");
+					$(_node).removeClass(_pageTransitionOutClassNext + " " + _pageTransitionOutClassPrev + " site-section-current site-section-prev");
 					_node.style.display = "none";
 				}
 				
 				_isPageTransitioning = false;
 			}
-
-			function whichTransitionEvent(){
-			    var t;
-			    var el = document.createElement('fakeelement');
-			    var transitions = {
-					"animation"      : "animationend",
-					"OAnimation"     : "oAnimationEnd",
-					"MozAnimation"   : "animationend",
-					"WebkitAnimation": "webkitAnimationEnd"
-			    }
-
-			    for(t in transitions){
-			        if( el.style[t] !== undefined ){
-			            return transitions[t];
-			        }
-			    }
-			}
-
 
 			this.getId = function(){
 				return _id;
@@ -63,15 +45,15 @@
 				return _isPageTransitioning;
 			}
 
-			this.setTransitionClasses = function(outPrev, outNext, inPrev, inNext){
-				_transitionOutClassPrev = outPrev;
-				_transitionOutClassNext = outNext;
-				_transitionInClassPrev = inPrev;
-				_transitionInClassNext = inNext;
+			this.setPgeTransitionClasses = function(outPrev, outNext, inPrev, inNext){
+				_pageTransitionOutClassPrev = outPrev;
+				_pageTransitionOutClassNext = outNext;
+				_pageTransitionInClassPrev = inPrev;
+				_pageTransitionInClassNext = inNext;
 			}
 
 			this.init = function(){
-				$(_node).bind(_transitionEvent, handlePageTransitionComplete);
+				$(_node).bind(_pageTransitionEvent, handlePageTransitionComplete);
 			}
 
 			this.enable = function(){
@@ -98,27 +80,27 @@
 				console.log(_debugId + " : show(" + direction + ")");
 
 				_node.style.display = "block";
-				$(_node).removeClass(_transitionOutClassNext + " " + _transitionOutClassPrev + " site-section-current site-section-prev");
+				$(_node).removeClass(_pageTransitionOutClassNext + " " + _pageTransitionOutClassPrev + " site-section-current site-section-prev");
 				$(_node).addClass("site-section-current");
 				_isPageTransitioning = true;
 
 				if(direction == "next"){
-					$(_node).addClass(_transitionInClassNext);
+					$(_node).addClass(_pageTransitionInClassNext);
 				}else{
-					$(_node).addClass(_transitionInClassPrev);
+					$(_node).addClass(_pageTransitionInClassPrev);
 				}
 			}
 
 			this.hide = function(direction){
 				console.log(_debugId + " : hide(" + direction + ")");
 
-				$(_node).removeClass(_transitionInClassNext + " " + _transitionInClassPrev + " site-section-current");
+				$(_node).removeClass(_pageTransitionInClassNext + " " + _pageTransitionInClassPrev + " site-section-current");
 				$(_node).addClass("site-section-prev");
 
 				if(direction == "next"){
-					$(_node).addClass(_transitionOutClassPrev);
+					$(_node).addClass(_pageTransitionOutClassPrev);
 				}else{
-					$(_node).addClass(_transitionOutClassNext);
+					$(_node).addClass(_pageTransitionOutClassNext);
 				}
 			}
 		}

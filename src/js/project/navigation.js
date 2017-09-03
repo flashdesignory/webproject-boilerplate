@@ -10,9 +10,14 @@ var NavigationController = (function(){
 	var _transitionOutClassPrev, _transitionOutClassNext, _transitionInClassPrev, _transitionInClassNext;
 
 	function setup(){
-		getTransitionClasses();
+		var transitions = Transitions.getTransitionClasses(_transition, _direction);
+		_transitionInClassNext = transitions.inNext;
+		_transitionInClassPrev = transitions.inPrev;
+		_transitionOutClassNext = transitions.outNext;
+		_transitionOutClassPrev = transitions.outPrev;
+
 		for(var i = 0; i<_pages.length; i++){
-			_pages[i].setTransitionClasses(_transitionOutClassPrev, _transitionOutClassNext, _transitionInClassPrev, _transitionInClassNext);
+			_pages[i].setPgeTransitionClasses(_transitionOutClassPrev, _transitionOutClassNext, _transitionInClassPrev, _transitionInClassNext);
 		}
 	}
 
@@ -72,56 +77,6 @@ var NavigationController = (function(){
 					_overlays[i].didDisappear();
 				}
 			}
-		}
-	}
-
-	function getTransitionClasses(){
-		switch(_transition){
-			case "slide":
-				if(_direction == "horizontal"){
-					_transitionOutClassNext = "pt-page-moveToRight";
-					_transitionOutClassPrev = "pt-page-moveToLeft"
-					_transitionInClassNext = "pt-page-moveFromRight";
-					_transitionInClassPrev = "pt-page-moveFromLeft";
-				}else{
-					_transitionOutClassNext = "pt-page-moveToBottom";
-					_transitionOutClassPrev = "pt-page-moveToTop"
-					_transitionInClassNext = "pt-page-moveFromBottom";
-					_transitionInClassPrev = "pt-page-moveFromTop";
-				}
-				break;
-			case "rotateslide":
-				if(_direction == "horizontal"){
-					_transitionOutClassNext = "pt-page-rotateSlideOutToRight";
-					_transitionOutClassPrev = "pt-page-rotateSlideOutToLeft"
-					_transitionInClassNext = "pt-page-rotateSlideInFromRight";
-					_transitionInClassPrev = "pt-page-rotateSlideInFromLeft";
-				}else{
-					_transitionOutClassNext = "pt-page-rotateSlideOutToBottom";
-					_transitionOutClassPrev = "pt-page-rotateSlideOutToTop"
-					_transitionInClassNext = "pt-page-rotateSlideInFromBottom";
-					_transitionInClassPrev = "pt-page-rotateSlideInFromTop";
-				}
-				break;
-			case "scale":
-				_transitionOutClassNext = "pt-page-scaleToDown";
-				_transitionOutClassPrev = "pt-page-scaleToUp"
-				_transitionInClassNext = "pt-page-scaleFromDown";
-				_transitionInClassPrev = "pt-page-scaleFromUp";
-				break;
-			case "flip":
-				if(_direction == "horizontal"){
-					_transitionOutClassPrev = "pt-page-flipOutToLeft";
-					_transitionOutClassNext = "pt-page-flipOutToRight"
-					_transitionInClassPrev = "pt-page-flipInFromLeft";
-					_transitionInClassNext = "pt-page-flipInFromRight";
-				}else{
-					_transitionOutClassNext = "pt-page-flipOutToTop";
-					_transitionOutClassPrev = "pt-page-flipOutToBottom"
-					_transitionInClassNext = "pt-page-flipInFromTop";
-					_transitionInClassPrev = "pt-page-flipInFromBottom";
-				}
-				break;
 		}
 	}
 
