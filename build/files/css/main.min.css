@@ -1516,6 +1516,14 @@ a.active {
   display: none;
 }
 
+.site-section-current {
+  z-index: 5000;
+}
+
+.site-section-prev {
+  z-index: 4000;
+}
+
 .section-background {
   position: absolute;
   left: 0px;

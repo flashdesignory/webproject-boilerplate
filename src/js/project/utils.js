@@ -216,6 +216,22 @@ var Utils = (function(){
 		        var x = a[key]; var y = b[key];
 		        return ((x < y) ? -1 : ((x > y) ? 1 : 0));
 		    });
+		},
+		getTransitionEvent:function(){
+		    var t;
+		    var el = document.createElement('fakeelement');
+		    var transitions = {
+				"animation"      : "animationend",
+				"OAnimation"     : "oAnimationEnd",
+				"MozAnimation"   : "animationend",
+				"WebkitAnimation": "webkitAnimationEnd"
+		    }
+
+		    for(t in transitions){
+		        if( el.style[t] !== undefined ){
+		            return transitions[t];
+		        }
+		    }
 		}
 	}
 })();

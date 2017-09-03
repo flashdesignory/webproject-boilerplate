@@ -13,7 +13,7 @@
 		var _currentIndex = 0;
 		var _prevIndex = 0;
 		var _images = [];
-		var _transitionEvent = whichTransitionEvent();
+		var _transitionEvent = Utils.getTransitionEvent();
 		var _isTransitioning = false;
 		var _numTransitionsComplete = 0;
 		var _transitionOutClassPrev, _transitionOutClassNext, _transitionInClassPrev, _transitionInClassNext;
@@ -198,28 +198,24 @@
 			if(event) event.preventDefault();
 		}
 
-		function whichTransitionEvent(){
-		    var t;
-		    var el = document.createElement('fakeelement');
-		    var transitions = {
-				"animation"      : "animationend",
-				"OAnimation"     : "oAnimationEnd",
-				"MozAnimation"   : "animationend",
-				"WebkitAnimation": "webkitAnimationEnd"
-		    }
-
-		    for(t in transitions){
-		        if( el.style[t] !== undefined ){
-		            return transitions[t];
-		        }
-		    }
-		}
-
 		function reset(){
-			move(0);
+			//move(0);			
+			if(_currentImage){
+				_prevImage = _currentImage;
+				_prevIndex = _currentIndex;
+
+				$(_prevImage).removeClass("gallery-image-current" + " " + _transitionInClassNext + " " + _transitionInClassPrev);
+			}
+
+			_currentIndex = 0;
+			_currentImage = _images[0];
+
+			$(_currentImage).removeClass("gallery-image-prev" + " " + _transitionOutClassNext + " " + _transitionOutClassPrev);
+			$(_currentImage).addClass("gallery-image-current");
 		}
 
 		this.willAppear = function(){
+			reset();
 			_super.willAppear();
 		}
 
@@ -234,7 +230,6 @@
 		}
 
 		this.didDisappear = function(){
-			reset();
 			_super.didDisappear();
 		}
 

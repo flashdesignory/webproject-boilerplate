@@ -1,23 +1,50 @@
 var NavigationController = (function(){
 	var _debugId = "NavigationController";
-	var _currentPage, _currentPageId;
+	var _currentPageId;
+	var _pageFlow = "next";
 	var _pages = [];
 	var _overlays = [];
 
-	function navigateToPage(name){
-		//console.log(_debugId + " : navigateToPage(" + name + ")");
+	var _transition = "scale";
+	var _direction = "horizontal";
+	var _transitionOutClassPrev, _transitionOutClassNext, _transitionInClassPrev, _transitionInClassNext;
+
+	function setup(){
+		getTransitionClasses();
 		for(var i = 0; i<_pages.length; i++){
+			_pages[i].setTransitionClasses(_transitionOutClassPrev, _transitionOutClassNext, _transitionInClassPrev, _transitionInClassNext);
+		}
+	}
+
+	function navigateToPage(name){
+		var i;
+		for(i = 0; i<_pages.length; i++){
+			if(_pages[i].getPageIsTransitioning()) return;
+			
 			if(_pages[i].getName() == name){
 				if(!_pages[i].getIsActive()){
 					$(NavigationController).trigger("NAVIGATE_TO_PAGE", name);
+
+					if(i >= _currentPageId || _currentPageId == undefined){
+						_pageFlow = "next";
+					}else{
+						_pageFlow = "prev";
+					}
+
+					_currentPageId = i;
+
 					_pages[i].willAppear();
-					_pages[i].show();
+					_pages[i].show(_pageFlow);
 					_pages[i].didAppear();
 				}
-			}else{
+			}
+		}
+
+		for(i = 0; i<_pages.length; i++){
+			if(_pages[i].getName() != name){
 				if(_pages[i].getIsActive()){
 					_pages[i].willDisappear();
-					_pages[i].hide();
+					_pages[i].hide(_pageFlow);
 					_pages[i].didDisappear();
 				}
 			}
@@ -25,7 +52,6 @@ var NavigationController = (function(){
 	}
 
 	function navigateToOverlay(name){
-		//console.log(_debugId + " : navigateToOverlay(" + name + ")");
 		for(var i = 0; i<_overlays.length; i++){
 			if(_overlays[i].getName() == name){
 				if(!_overlays[i].getIsActive()){
@@ -38,7 +64,6 @@ var NavigationController = (function(){
 	}
 
 	function navigateFromOverlay(name){
-		//console.log(_debugId + " : navigateFromOveraly(" + name + ")");
 		for(var i = 0; i<_overlays.length; i++){
 			if(_overlays[i].getName() == name){
 				if(_overlays[i].getIsActive()){
@@ -47,6 +72,56 @@ var NavigationController = (function(){
 					_overlays[i].didDisappear();
 				}
 			}
+		}
+	}
+
+	function getTransitionClasses(){
+		switch(_transition){
+			case "slide":
+				if(_direction == "horizontal"){
+					_transitionOutClassNext = "pt-page-moveToRight";
+					_transitionOutClassPrev = "pt-page-moveToLeft"
+					_transitionInClassNext = "pt-page-moveFromRight";
+					_transitionInClassPrev = "pt-page-moveFromLeft";
+				}else{
+					_transitionOutClassNext = "pt-page-moveToBottom";
+					_transitionOutClassPrev = "pt-page-moveToTop"
+					_transitionInClassNext = "pt-page-moveFromBottom";
+					_transitionInClassPrev = "pt-page-moveFromTop";
+				}
+				break;
+			case "rotateslide":
+				if(_direction == "horizontal"){
+					_transitionOutClassNext = "pt-page-rotateSlideOutToRight";
+					_transitionOutClassPrev = "pt-page-rotateSlideOutToLeft"
+					_transitionInClassNext = "pt-page-rotateSlideInFromRight";
+					_transitionInClassPrev = "pt-page-rotateSlideInFromLeft";
+				}else{
+					_transitionOutClassNext = "pt-page-rotateSlideOutToBottom";
+					_transitionOutClassPrev = "pt-page-rotateSlideOutToTop"
+					_transitionInClassNext = "pt-page-rotateSlideInFromBottom";
+					_transitionInClassPrev = "pt-page-rotateSlideInFromTop";
+				}
+				break;
+			case "scale":
+				_transitionOutClassNext = "pt-page-scaleToDown";
+				_transitionOutClassPrev = "pt-page-scaleToUp"
+				_transitionInClassNext = "pt-page-scaleFromDown";
+				_transitionInClassPrev = "pt-page-scaleFromUp";
+				break;
+			case "flip":
+				if(_direction == "horizontal"){
+					_transitionOutClassPrev = "pt-page-flipOutToLeft";
+					_transitionOutClassNext = "pt-page-flipOutToRight"
+					_transitionInClassPrev = "pt-page-flipInFromLeft";
+					_transitionInClassNext = "pt-page-flipInFromRight";
+				}else{
+					_transitionOutClassNext = "pt-page-flipOutToTop";
+					_transitionOutClassPrev = "pt-page-flipOutToBottom"
+					_transitionInClassNext = "pt-page-flipInFromTop";
+					_transitionInClassPrev = "pt-page-flipInFromBottom";
+				}
+				break;
 		}
 	}
 
@@ -59,8 +134,6 @@ var NavigationController = (function(){
 			}
 		},
 		init:function(){
-			//console.log(_debugId + " : init()");
-
 			var sections = $('.site-section');
 			var overlays = $('.site-overlay');
 
@@ -104,9 +177,10 @@ var NavigationController = (function(){
 				overlay.init();
 				_overlays.push(overlay);
 			}
+
+			setup();
 		},
 		goToPage:function(id){
-			//console.log(_debugId + " : goToPage()");
 			navigateToPage(id);
 		},
 		showOverlay:function(id){
@@ -116,7 +190,6 @@ var NavigationController = (function(){
 			navigateFromOverlay(id);
 		},
 		start:function(){
-			//console.log(_debugId + " : start()");
 			navigateToPage("HOME");
 		}
 	}
