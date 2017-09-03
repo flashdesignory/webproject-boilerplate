@@ -30,7 +30,7 @@ module.exports = function(grunt){
 			    dest: 'build/files/js/vendor.min.js'
 			},
 			project: {
-				src: 'src/js/project/*.js',
+				src: ['src/js/project/utils.js','src/js/project/*.js'],
 				dest: 'build/files/js/main.min.js'
 			}
 		},
