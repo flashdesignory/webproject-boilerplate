@@ -48,7 +48,7 @@ var Utils = (function(){
 			}
 		},
 		dispatchCustomEvent:function(_obj, _type, _data){
-			_obj.dispatchEvent(new CustomEvent(_type, {data:_data}));
+			_obj.dispatchEvent(new CustomEvent(_type, {detail:_data}));
 		},
 		addClass:function(element, value){
 			if(element){

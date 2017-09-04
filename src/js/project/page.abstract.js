@@ -77,8 +77,7 @@
 			this.didDisappear = function(){}
 
 			this.show = function(direction){
-				console.log(_debugId + " : show(" + direction + ")");
-
+				//console.log(_debugId + " : show(" + direction + ")");
 				_node.style.display = "block";
 				$(_node).removeClass(_pageTransitionOutClassNext + " " + _pageTransitionOutClassPrev + " site-section-current site-section-prev");
 				$(_node).addClass("site-section-current");
@@ -93,8 +92,7 @@
 			}
 
 			this.hide = function(direction){
-				console.log(_debugId + " : hide(" + direction + ")");
-
+				//console.log(_debugId + " : hide(" + direction + ")");
 				$(_node).removeClass(_pageTransitionInClassNext + " " + _pageTransitionInClassPrev + " site-section-current");
 				$(_node).addClass("site-section-prev");
 
