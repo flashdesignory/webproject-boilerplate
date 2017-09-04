@@ -17,7 +17,7 @@
 		var _isTransitioning = false;
 		var _numTransitionsComplete = 0;
 		var _transitionOutClassPrev, _transitionOutClassNext, _transitionInClassPrev, _transitionInClassNext;
-		var _transition = "scale";
+		var _transition = "slide";
 		var _direction = "horizontal";
 		var _prevButton;
 		var _nextButton;

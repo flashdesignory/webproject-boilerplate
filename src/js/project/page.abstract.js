@@ -82,11 +82,12 @@
 				_node.style.display = "block";
 				$(_node).removeClass(_pageTransitionOutClassNext + " " + _pageTransitionOutClassPrev + " site-section-current site-section-prev");
 				$(_node).addClass("site-section-current");
-				_isPageTransitioning = true;
-
+				
 				if(direction == "next"){
+					_isPageTransitioning = true;
 					$(_node).addClass(_pageTransitionInClassNext);
-				}else{
+				}else if(direction == "prev"){
+					_isPageTransitioning = true;
 					$(_node).addClass(_pageTransitionInClassPrev);
 				}
 			}

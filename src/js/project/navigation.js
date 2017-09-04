@@ -21,6 +21,18 @@ var NavigationController = (function(){
 		}
 	}
 
+	function displayPage(name){
+		for(i = 0; i<_pages.length; i++){			
+			if(_pages[i].getName() == name){
+				$(NavigationController).trigger("NAVIGATE_TO_PAGE", name);
+				_currentPageId = i;
+				_pages[i].willAppear();
+				_pages[i].show("");
+				_pages[i].didAppear();
+			}
+		}
+	}
+
 	function navigateToPage(name){
 		var i;
 		for(i = 0; i<_pages.length; i++){
@@ -145,7 +157,7 @@ var NavigationController = (function(){
 			navigateFromOverlay(id);
 		},
 		start:function(){
-			navigateToPage("HOME");
+			displayPage("HOME");
 		}
 	}
 })();
