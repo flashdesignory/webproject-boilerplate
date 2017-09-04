@@ -50,9 +50,10 @@ var MenuController = (function(){
 	function updateDisplay(){
 		if(_expanded){
 			$(_elements["container"]).addClass("expanded").removeClass("collapsed");
-
+			$(_elements["navigation"]).addClass("expanded").removeClass("collapsed");
 		}else{
 			$(_elements["container"]).removeClass("expanded").addClass("collapsed");
+			$(_elements["navigation"]).removeClass("expanded").addClass("collapsed");
 		}
 	}
 
