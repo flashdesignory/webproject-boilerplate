@@ -213,6 +213,7 @@ var Site = (function(){
 			MenuController.init();
 			Legal.init();
 			NavigationController.start();
+			AudioController.init();
 		}
 
 		Preloader.hide();

@@ -33,7 +33,7 @@
 	<body class="loading">
 		<h1 id="meta-title" style="display:none;">template</h1>
 		<div id="breakpoints" style="display:none;"></div>
-        <div id="audio" style="display:none;">&nbsp;</div>
+        <div id="audio" data-module="audio" data-type="player" style="display:none;">&nbsp;</div>
         <div id="content-container">
         	<header id="main-header">
         		<div id="main-title" data-navigation-id="home" data-navigation-type="section">
@@ -110,7 +110,10 @@
 		        		<a id="main-footer-tickets" href="#">tickets</a>
 	        		</div>
 	        		<div id="main-footer-right">
-	        			<div id="main-footer-audio"><a href="#"><span class="icon-audio-unmute"></span></a></div>
+	        			<div id="main-footer-audio" data-module="audio" data-type="container">
+	        				<a href="#" id="audio-unmute" class="audio-button" data-module="audio" data-type="unmute"><span class="icon-audio-unmute"></span></a>
+	        				<a href="#" id="audio-mute" class="audio-button" data-module="audio" data-type="mute"><span class="icon-audio-mute"></span></a>
+	        			</div>
 	        			<div class="footer-section-divider"> | </div>
 	        			<div id="main-footer-social">
 	        				<ul id="social-buttons">
