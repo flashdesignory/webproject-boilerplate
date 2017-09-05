@@ -4,15 +4,31 @@ var Transitions = (function(){
 		    var t;
 		    var el = document.createElement('fakeelement');
 		    var transitions = {
+				"transition"      : "transitionend",
+				"OTransition"     : "oTransitionEnd",
+				"MozTransition"   : "transitionend",
+				"WebkitTransition": "webkitTransitionEnd"
+		    }
+
+		    for(t in transitions){
+		        if( el.style[t] !== undefined ){
+		            return transitions[t];
+		        }
+		    }
+		},
+		getAnimationEvent:function(){
+		    var t;
+		    var el = document.createElement('fakeelement');
+		    var animations = {
 				"animation"      : "animationend",
 				"OAnimation"     : "oAnimationEnd",
 				"MozAnimation"   : "animationend",
 				"WebkitAnimation": "webkitAnimationEnd"
 		    }
 
-		    for(t in transitions){
+		    for(t in animations){
 		        if( el.style[t] !== undefined ){
-		            return transitions[t];
+		            return animations[t];
 		        }
 		    }
 		},

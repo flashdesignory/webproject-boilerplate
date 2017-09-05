@@ -50,39 +50,6 @@ a{
 /**
  * layout
  **/
-#preload-container{
-  position: fixed;
-  left:0px;
-  top:0px;
-  width:100%;
-  height:100%;
-  display:none;
-  background-color:$overlay-background-color;
-  z-index: 10000;
-}
-
-#preloader{
-  width:32px;
-  height:32px;
-  position: absolute;
-  left:0px;
-  top:0px;
-  right:0px;
-  bottom:0px;
-  margin:auto;
-  text-align: center;
-  line-height: 36px;
-  font-size: 32px;
-}
-
-.loading #preload-container{
-  display:block;
-}
-
-.loading #preloader{
-  animation: rotate 2s linear infinite;
-}
-
 #content-container{
 	position:relative;
 	width:100%;
@@ -117,6 +84,48 @@ a{
 	height:100%;
 	overflow: hidden;
 	z-index: 7000;
+}
+
+/**
+ * Preloader
+ **/
+ #preload-container{
+  position: fixed;
+  left:0px;
+  top:0px;
+  width:100%;
+  height:100%;
+  background-color:$overlay-background-color;
+  z-index: 10000;
+  opacity: 1;
+  transition: all 0.5s ease;
+}
+
+#preloader{
+  width:32px;
+  height:32px;
+  position: absolute;
+  left:0px;
+  top:0px;
+  right:0px;
+  bottom:0px;
+  margin:auto;
+  text-align: center;
+  line-height: 36px;
+  font-size: 32px;
+}
+
+.loading #preload-container{
+  display:block;
+  opacity: 1;
+}
+
+.loading #preloader{
+  animation: rotate 2s linear infinite;
+}
+
+.loaded #preload-container{
+  opacity: 0;
 }
 
 /** 

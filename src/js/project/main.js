@@ -215,7 +215,7 @@ var Site = (function(){
 			NavigationController.start();
 		}
 
-		_body.removeClass('loading').addClass('loaded');
+		Preloader.hide();
 	}
 
 	return {

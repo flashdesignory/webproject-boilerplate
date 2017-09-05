@@ -13,7 +13,7 @@
 		var _currentIndex = 0;
 		var _prevIndex = 0;
 		var _images = [];
-		var _transitionEvent = Transitions.getTransitionEvent();
+		var _transitionEvent = Transitions.getAnimationEvent();
 		var _isTransitioning = false;
 		var _numTransitionsComplete = 0;
 		var _transitionOutClassPrev, _transitionOutClassNext, _transitionInClassPrev, _transitionInClassNext;
@@ -50,7 +50,6 @@
 		}
 
 		function handleTransitionComplete(event){
-			console.log(_debugId + " : handleTransitionComplete()");
 			$(_prevImage).removeClass("gallery-image-prev" + " " + _transitionOutClassNext + " " + _transitionOutClassPrev);
 			_isTransitioning = false;
 		}
@@ -68,8 +67,6 @@
 		}
 
 		function move(index){
-			console.log(_debugId,"move(" + index + ", " + _currentIndex + ")");
-
 			if(_isTransitioning) return;
 
 			_isTransitioning = true;

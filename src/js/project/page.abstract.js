@@ -9,7 +9,7 @@
 			var _isActive = false;
 
 			var _isPageTransitioning = false;
-			var _pageTransitionEvent = Transitions.getTransitionEvent();
+			var _pageTransitionEvent = Transitions.getAnimationEvent();
 			var _pageTransitionOutClassPrev, _pageTransitionOutClassNext, _pageTransitionInClassPrev, _pageTtransitionInClassNext;
 
 			function handlePageTransitionComplete(event){
